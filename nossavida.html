@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amor libera</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #ff0000; /* Fundo vermelho */
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #titulo {
+        font-size: 32px; /* Título maior */
+        margin-bottom: 40px; /* Mais espaço abaixo do título */
+        color: white; /* Letra da fonte branca */
+        font-weight: bold; /* Título em negrito */
+    }
+
+    #quadrados-container {
+        display: flex;
+        flex-direction: row; /* Alteração para direção de linha */
+        align-items: center;
+    }
+
+    .quadrado {
+        width: 50px; /* Quadrado menor */
+        height: 50px; /* Quadrado menor */
+        margin-right: 20px; /* Espaço entre os quadrados */
+        background-color: white; /* Quadrados brancos */
+        color: black; /* Letra da fonte preta */
+        text-align: center;
+        line-height: 50px; /* Quadrado menor */
+        cursor: pointer;
+        transition: all 0.5s ease;
+        position: relative;
+        border-radius: 10px; /* Cantos mais arredondados */
+    }
+
+    .quadrado:hover {
+        background-color: #ccc; /* Cor de fundo ao passar o mouse */
+    }
+</style>
+</head>
+<body>
+<div id="container">
+    <div id="titulo">Cuzinho hoje?</div>
+    <div id="quadrados-container">
+        <div id="sim" class="quadrado" onclick="redirect()">Sim</div>
+        <div id="nao" class="quadrado" onclick="moveQuadrado('nao')">Não</div>
+    </div>
+</div>
+<script>
+    function moveQuadrado(id) {
+        if (id === 'nao') {
+            var quadrado = document.getElementById(id);
+            var container = document.getElementById('container');
+
+            // Gerando uma nova posição aleatória dentro do intervalo máximo de 20cm em relação às bordas do contêiner
+            var novaPosicaoX = Math.random() * (container.offsetWidth - quadrado.offsetWidth) * 2;
+            var novaPosicaoY = Math.random() * (container.offsetHeight - quadrado.offsetHeight) * 2;
+
+            // Definindo a nova posição do quadrado "NÃO"
+            quadrado.style.left = novaPosicaoX + 'px';
+            quadrado.style.top = novaPosicaoY + 'px';
+        }
+    }
+
+    function redirect() {
+        window.location.href = 'https://youtu.be/dQw4w9WgXcQ?t=42';
+    }
+</script>
+</body>
+</html>
